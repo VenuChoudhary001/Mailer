@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   List,
   ListItem,
@@ -7,7 +7,9 @@ import {
   ListItemAvatar,
   Avatar,
 } from "@material-ui/core";
+import MAIL_CONTEXT from "../context/mail-context";
 function MailList() {
+  const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
   return (
     <>
       <div className="mail-list">
@@ -16,28 +18,36 @@ function MailList() {
         </div>
 
         <List>
-          <ListItem button>
-            <ListItemAvatar>
-              <Avatar src="/hi" alt="Venu" />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Brunch this weekend?"
-              secondary={
-                <React.Fragment>
-                  <Typography
-                    component="span"
-                    variant="body2"
-                    color="textPrimary"
-                  >
-                    Ali Connors
-                  </Typography>
-                  {
-                    " — I'll be in your neighborhood doing errands this…fdhfjdhfdhjjjjjjj dfadfhafhajdfhajdfhajdfhajdfhajfhjafhja lorem50"
-                  }
-                </React.Fragment>
-              }
-            />
-          </ListItem>
+          {allMail
+            ? allMail.map((item) => (
+                <ListItem
+                  button
+                  onClick={() => {
+                    setViewMail(item.id);
+                    setShow(false);
+                  }}
+                >
+                  <ListItemAvatar>
+                    <Avatar src="/hi" alt="Venu" />
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={item.title}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          color="textPrimary"
+                        >
+                          Ali Connors
+                        </Typography>
+                        {item.body}
+                      </React.Fragment>
+                    }
+                  />
+                </ListItem>
+              ))
+            : null}
         </List>
       </div>
     </>
