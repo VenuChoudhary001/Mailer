@@ -1,0 +1,80 @@
+:root {
+    --primary-color : #008C8C;
+}
+body {
+    background-color :rgb(253, 237, 216);
+    margin: 0px;
+}
+.login {
+    display: flex;
+}
+.image {
+  
+    position: relative;
+    text-align: center;
+}
+.login h1 {
+    position:absolute;
+    font-size: 80px;
+     top: 8px;
+     left: 10vw;
+     color: var(--primary-color);
+}
+.login h2 {
+    margin-top: 12vh;
+    margin-bottom: 0px;
+    font-size: 50px;
+    text-align: center;
+}
+.login h4{
+    margin-top:10px;
+}
+.column {
+    margin: 20px 0px;
+    display:grid;
+}
+label {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+input {
+    width : 50%;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+button {
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    height: 40px;
+    width: 40%;
+     border: none;
+     font-size: 15px;
+     padding: 8px;
+     border-radius: 7px;
+     box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
+}
+.logindetails{
+    margin-top: 5vh;
+    margin-left: 15vw;
+}
+.logindetails h4 {
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid rgb(146, 145, 145);
+    line-height: 0.1em;
+    margin: 30px 0px;
+}
+.logindetails h4 span {
+    background:rgb(253, 237, 216);
+    padding:0 10px;
+}
+.btn-success {
+    background-color: white;
+    color: rgb(77, 77, 77);
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+}

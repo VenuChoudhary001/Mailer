@@ -24,7 +24,7 @@ function NewMail() {
         <hr />
         <form onSubmit={formik.handleSubmit}>
           <div className="form-group my-1">
-            <label htmlFor="to">From:</label>
+            <Typography variant="subtitle1">FROM:</Typography>
             <input
               type="email"
               id="from"
@@ -36,7 +36,8 @@ function NewMail() {
             />
           </div>
           <div className="form-group my-1">
-            <label htmlFor="to">To:</label>
+            <Typography variant="subtitle1">TO:</Typography>
+
             <input
               type="email"
               id="to"

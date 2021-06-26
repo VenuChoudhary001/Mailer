@@ -15,6 +15,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import HistoryIcon from "@material-ui/icons/History";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import MAIL_CONTEXT from "../context/mail-context";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   drawer: {
     // position: "fixed",
@@ -31,15 +32,21 @@ function Sidebar() {
       <List>
         <ListItem button>
           <ListItemIcon>
-            <HomeIcon />
+            <Link to="/home">
+              <HomeIcon />
+            </Link>
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <HistoryIcon />
+            <Link to="/history">
+              <HistoryIcon />
+            </Link>
           </ListItemIcon>
-          <ListItemText primary="History" />
+          <Link to="/history">
+            <ListItemText primary="History" />
+          </Link>
         </ListItem>
         <ListItem button onClick={() => setShow(true)}>
           <ListItemIcon>

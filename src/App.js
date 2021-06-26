@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { CssBaseline } from "@material-ui/core";
 import "./styles/home.css";
 import { PROVIDER } from "./context/mail-context";
+import ReactRouterSetup from "./Router";
 function App() {
   return (
     <div>
@@ -12,7 +13,7 @@ function App() {
         {/* Mail context provider */}
         <PROVIDER>
           <CssBaseline />
-          <Home />
+          <ReactRouterSetup />
         </PROVIDER>
       </ThemeProvider>
     </div>
