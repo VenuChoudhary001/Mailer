@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/history.css";
-import maildetails from "./maildetails";
+import "../../styles/history.css";
+// import maildetails from "./maildetails";
 
 const History = () => {
   return (
