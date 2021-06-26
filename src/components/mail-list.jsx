@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   List,
   ListItem,
@@ -15,7 +16,7 @@ function MailList() {
           <Typography variant="h4">Inbox</Typography>
         </div>
 
-        <List>
+        <List className="list">
           <ListItem button>
             <ListItemAvatar>
               <Avatar src="/hi" alt="Venu" />

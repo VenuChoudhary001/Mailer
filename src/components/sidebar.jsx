@@ -30,24 +30,22 @@ function Sidebar() {
   return (
     <div className="side-bar">
       <List>
+        <Link className="Link" to="/home">
         <ListItem button>
-          <ListItemIcon>
-            <Link to="/home">
+              <ListItemIcon>
               <HomeIcon />
-            </Link>
-          </ListItemIcon>
-          <ListItemText primary="Home" />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
         </ListItem>
+        </Link>
+          <Link className="Link" to="/history">
         <ListItem button>
-          <ListItemIcon>
-            <Link to="/history">
+              <ListItemIcon>
               <HistoryIcon />
-            </Link>
-          </ListItemIcon>
-          <Link to="/history">
-            <ListItemText primary="History" />
-          </Link>
+              </ListItemIcon>
+              <ListItemText primary="History" />
         </ListItem>
+        </Link>
         <ListItem button onClick={() => setShow(true)}>
           <ListItemIcon>
             <AddCircleIcon />

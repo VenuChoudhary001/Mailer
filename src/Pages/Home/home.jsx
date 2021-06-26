@@ -1,24 +1,30 @@
 import React, { useContext } from "react";
 import Sidebar from "../../components/sidebar";
 import Header from "../../components/header";
-import { Grid, Typography } from "@material-ui/core";
+import THEME from "../../theme/theme.jsx";
 import MailList from "../../components/mail-list";
 import ViewMail from "../../components/view-mail";
 import NewMail from "../../components/newMail";
 import MAIL_CONTEXT from "../../context/mail-context";
+import { CssBaseline } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
+import "../../styles/home.css";
 function Home() {
   const { show } = useContext(MAIL_CONTEXT);
   return (
     <>
-      <div className="main">
-        <Header />
-        <div className="grid-container my-1">
-          <Sidebar />
+      <ThemeProvider theme={THEME}>
+        <CssBaseline />
+        <div className="main">
+          <Header />
+          <div className="grid-container my-1">
+            <Sidebar />
 
-          <MailList />
-          {show ? <NewMail /> : <ViewMail />}
+            <MailList />
+            {show ? <NewMail /> : <ViewMail />}
+          </div>
         </div>
-      </div>
+      </ThemeProvider>
     </>
   );
 }

@@ -4,12 +4,12 @@ import { makeStyles } from "@material-ui/styles";
 
 function Header() {
   return (
-    <nav className="custom-navbar mb-1">
-      <ul>
-        <li>
-          <h3>Mailer</h3>
-        </li>
-      </ul>
+    <nav className="custom-navbar ">
+      {/* <ul  style={{textDecoration: "none"}}>
+        <li> */}
+          <h2>Mailer</h2>
+        {/* </li>
+      </ul> */}
     </nav>
   );
 }

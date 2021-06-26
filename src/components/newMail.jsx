@@ -74,8 +74,8 @@ function NewMail() {
           <Button
             variant="contained"
             type="submit"
-            color="primary"
             startIcon={<SendIcon />}
+            style={{backgroundColor : "var(--primary-color)", color :"white", margin: "10px"}}
           >
             SEND
           </Button>
@@ -83,7 +83,7 @@ function NewMail() {
             variant="contained"
             color="secondary"
             startIcon={<DeleteIcon />}
-            className="mx-2"
+   
             onClick={() => setShow(false)}
           >
             DISCARD

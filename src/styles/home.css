@@ -1,24 +1,32 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-}
+} */
 ul {
   margin-bottom: 0;
+  text-decoration: none;
 }
 .custom-navbar {
-  box-shadow: 0rem 0.8rem 0.5rem #a9a9a970;
+ box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
+ z-index: 150;
   /* padding: 5px; */
+  /* position: fixed; */
 }
-.custom-navbar ul {
+.custom-navbar h2 {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 5px;
-  padding-bottom: 0;
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* align-items: flex-start; */
+  text-decoration: none;
+  margin: 7px 20px;
+  font-size: 30px;
+  /* padding-top: 5px; */
+  /* padding-bottom: 0; */
+  /* margin-bottom: 1rem; */
+  
 }
 .main {
   display: flex;
@@ -28,12 +36,15 @@ ul {
 }
 .grid-container {
   display: grid;
-  grid-template-columns: 2fr 5fr 5fr;
-  grid-gap: 15px;
+  grid-template-columns: 2fr 4fr 6fr;
+  /* grid-gap: 15px; */
 }
 .mail-list {
   display: flex;
   flex-direction: column;
+  background-color: #eee;
+  padding: 10px;
+  z-index: 1;
 }
 .mail-info {
   display: flex;
@@ -45,7 +56,9 @@ ul {
   display: flex;
   flex-direction: column;
   padding: 2px 2px;
-  box-shadow: 0.5rem 0rem 0.5rem #a9a9a970;
+box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
+height: 100vh;
+z-index: 99;
 }
 .view-mail {
   padding: 10px;
@@ -83,3 +96,31 @@ ul {
   justify-content: center;
   align-items: center;
 }
+.Link {
+  text-decoration: none;
+  color : black;
+}
+.Link :hover {
+  color : var(--primary-color);
+}
+.mail-header {
+       margin: 10px 0px;
+       background-color: var(--primary-color);
+       /* width :  100%; */
+       color: white;
+       text-align: center;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width : 100%;
+       height: 60px;
+       border-radius: 7px;
+       box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
+}
+.Button {
+    background-color: var(--primary-color);
+    color: white;
+}
+/* .list :hover {
+  background-color: white;
+} */
