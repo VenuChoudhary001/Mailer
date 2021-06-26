@@ -9,7 +9,9 @@ import MAIL_CONTEXT from "../../context/mail-context";
 import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import "../../styles/home.css";
-function Home() {
+// import { Typography } from "@material-ui/core";
+function Home(props) {
+  const u=props.u;
   const { show } = useContext(MAIL_CONTEXT);
   return (
     <>
@@ -20,7 +22,8 @@ function Home() {
           <div className="grid-container my-1">
             <Sidebar />
 
-            <MailList />
+            <MailList name={u}/>
+       
             {show ? <NewMail /> : <ViewMail />}
           </div>
         </div>

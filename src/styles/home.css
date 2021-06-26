@@ -52,6 +52,7 @@ ul {
   align-items: center;
 }
 .side-bar {
+  /* position: relative; */
   min-height: 700px;
   display: flex;
   flex-direction: column;
