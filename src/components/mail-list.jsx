@@ -11,10 +11,10 @@ import MAIL_CONTEXT from "../context/mail-context";
 const MailList =(props) => {
   const u= props.name ;
   var Heading = "heading";
-  if (u=="home"){
+  if (u==="home"){
     Heading= "Inbox";
   }
-  else if (u== "history"){
+  else if (u=== "history"){
     Heading="History";
   }
   const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);

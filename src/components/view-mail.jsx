@@ -21,7 +21,9 @@ function ViewMail() {
   }
 
   return (
-    <div className="view-mail">
+    <>
+    <div style={{display: "flex" ,justifyContent: "center", width: "55vw" ,marginLeft:"45vw" ,position:"fixed"}}>
+    <div className="view-mail" style={{padding:"30px" }}>
       <div className="mail-title">
         <Typography variant="h6">{currentMail.title}</Typography>
       </div>
@@ -37,6 +39,8 @@ function ViewMail() {
         <Typography variant="body1">{currentMail.body}</Typography>
       </div>
     </div>
+    </div>
+    </>
   );
 }
 

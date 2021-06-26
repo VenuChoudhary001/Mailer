@@ -19,13 +19,14 @@ function Home(props) {
         <CssBaseline />
         <div className="main">
           <Header />
-          <div className="grid-container my-1">
-            <Sidebar />
+      </div>
+          <div className="grid-container" >
+            <Sidebar style={{position: "fixed"}}/>
 
             <MailList name={u}/>
        
             {show ? <NewMail /> : <ViewMail />}
-          </div>
+         
         </div>
       </ThemeProvider>
     </>

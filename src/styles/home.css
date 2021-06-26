@@ -13,7 +13,10 @@ ul {
  box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
  z-index: 150;
   /* padding: 5px; */
-  /* position: fixed; */
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  /* padding-bottom: 10px; */
 }
 .custom-navbar h2 {
   display: flex;
@@ -35,16 +38,20 @@ ul {
   /* align-items: center; */
 }
 .grid-container {
+  margin-top: 50px;
   display: grid;
-  grid-template-columns: 2fr 4fr 6fr;
+  grid-template-columns: 4fr 6fr 2fr;
   /* grid-gap: 15px; */
 }
 .mail-list {
   display: flex;
   flex-direction: column;
+  width: 30vw;
   background-color: #eee;
   padding: 10px;
   z-index: 1;
+  position: relative;
+  margin-left: 15vw;
 }
 .mail-info {
   display: flex;
@@ -56,10 +63,15 @@ ul {
   min-height: 700px;
   display: flex;
   flex-direction: column;
+  position: fixed;
   padding: 2px 2px;
 box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
 height: 100vh;
+width: 15vw;
 z-index: 99;
+overflow-x: hidden;
+background-color: white;
+
 }
 .view-mail {
   padding: 10px;
@@ -68,6 +80,7 @@ z-index: 99;
 .new-mail {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .new-mail-header {
   padding: 5px;
@@ -92,7 +105,6 @@ z-index: 99;
 }
 .form-group {
   font-size: 1rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,3 +137,19 @@ z-index: 99;
 /* .list :hover {
   background-color: white;
 } */
+.dropdown {
+   margin: 10px;
+  
+   width: 17vw;
+}
+.Dropdown-control {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+   height: 40px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgba(56, 54, 54, 50%);
+}
+.Dropdown-arrow {
+  color: white;
+}

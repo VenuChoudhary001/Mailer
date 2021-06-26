@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function Sidebar() {
   const { setShow } = useContext(MAIL_CONTEXT);
   return (
-    <div className="side-bar">
+    <div className="side-bar" >
       <List>
         <Link className="Link" to="/home">
         <ListItem button>
