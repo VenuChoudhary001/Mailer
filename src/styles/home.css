@@ -19,6 +19,7 @@ ul {
   align-items: flex-start;
   padding-top: 5px;
   padding-bottom: 0;
+  margin-bottom: 1rem;
 }
 .main {
   display: flex;

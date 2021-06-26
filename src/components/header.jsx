@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 
 function Header() {
   return (
-    <nav className="custom-navbar mb-1">
+    <nav className="custom-navbar ">
       <ul>
         <li>
           <h3>Mailer</h3>
