@@ -19,8 +19,7 @@ export const PROVIDER = ({ children }) => {
   //View particular mail on Click
   const [viewMail, setViewMail] = useState();
 
-  // const [flag,setFlag]=useState(false)
-
+   const [history,setHistory]=useState(false);
 
   const { user } = useContext(USER_CONTEXT);
  const getData = async () => {

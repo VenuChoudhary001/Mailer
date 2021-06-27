@@ -50,7 +50,7 @@ function ViewMail() {
             <Avatar src="/hi" alt={currentMail.mail.to} />
             <Typography variant="subtitle1" className="mx-4">
               {currentMail.mail.to}
-              <Typography variant="subtitle2">07:46</Typography>
+              <Typography variant="subtitle2">{new Date(currentMail.sentAt).toTimeString()}</Typography>
             </Typography>
           </div>
           <hr />

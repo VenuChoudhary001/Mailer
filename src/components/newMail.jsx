@@ -9,6 +9,7 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import USER_CONTEXT from "../context/user-context";
 
 function NewMail() {
   const {
@@ -20,6 +21,7 @@ function NewMail() {
     setAllMail,
     allMail,
   } = useContext(MAIL_CONTEXT);
+  const {user}=useContext(USER_CONTEXT);
   const formik = useFormik({
     initialValues: {
       to: "",
@@ -32,18 +34,19 @@ function NewMail() {
       // setNewMail({ ...values, id: uuidv4() });
       const addData = async () => {
         let addMail = await fetch(
-          "https://jsonplaceholder.typicode.com/posts",
+          "https://flash-mailer-backend.herokuapp.com/api/send/mail/send",
           {
             method: "POST",
             body: JSON.stringify({
-              title: values.subject,
-              body: values.content,
-              userId: uuidv4(),
               to: values.to,
-              from: values.from,
+              cc: "",
+              bcc: [],
+              subject: values.subject,
+              body: values.content,
             }),
             headers: {
               "Content-type": "application/json; charset=UTF-8",
+              AuthTokenString: `${user.token}`,
             },
           }
         );

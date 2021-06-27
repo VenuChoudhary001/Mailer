@@ -35,7 +35,7 @@ const MailList =() => {
                   }}
                 >
                   <ListItemAvatar>
-                    <Avatar src="/hi" alt={item.mail.to} />
+                    {/* <Avatar src="/hi" alt={item.mail.to} /> */}
                   </ListItemAvatar>
                   <ListItemText
                     primary={item.mail.subject}
