@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { useFormik } from "formik";
-import { Typography, Button, IconButton } from "@material-ui/core";
+import { Typography, Button } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MAIL_CONTEXT from "../context/mail-context";
-import { v4 as uuidv4 } from "uuid";
+
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { Editor } from "react-draft-wysiwyg";
@@ -15,8 +15,7 @@ function NewMail() {
   const {
     setShow,
     setSendMail,
-    newMail,
-    setNewMail,
+    
     setViewMail,
     setAllMail,
     allMail,

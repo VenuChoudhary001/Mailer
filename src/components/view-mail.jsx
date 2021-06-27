@@ -3,7 +3,7 @@ import { Typography, Avatar } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
 import USER_CONTEXT from "../context/user-context";
 function ViewMail() {
-  const { viewMail, setViewMail } = useContext(MAIL_CONTEXT);
+  const { viewMail } = useContext(MAIL_CONTEXT);
   const {user}=useContext(USER_CONTEXT);
   const [currentMail, setCurrentMail] = useState();
   const getData = async () => {

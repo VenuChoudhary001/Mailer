@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext} from "react";
 import {
   List,
   ListItem,
@@ -11,8 +11,8 @@ import MAIL_CONTEXT from "../context/mail-context";
 import USER_CONTEXT from "../context/user-context";
 const HistoryMailList =() => {
  
-  const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
-  const {user}=useContext(USER_CONTEXT);
+  const { allMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
+  // const {user=useContext(USER_CONTEXT);
 
 
 

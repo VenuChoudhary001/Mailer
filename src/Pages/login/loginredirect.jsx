@@ -6,7 +6,7 @@ import USER_CONTEXT from "../../context/user-context";
 import "../../styles/loginpage.css";
 
 const LoginRedirect = () => {
-  const { user, setUser ,setFlag} = useContext(USER_CONTEXT);
+  const { user, setUser } = useContext(USER_CONTEXT);
   let history = useHistory();
 
   const loginUser = async () => {
