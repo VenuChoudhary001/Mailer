@@ -12,7 +12,7 @@ const MailList =(props) => {
   const u= props.name ;
   var Heading = "heading";
   if (u==="home"){
-    Heading= "Inbox";
+    Heading= "Scheduled Mails";
   }
   else if (u=== "history"){
     Heading="History";

@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import login from "../assests/login.png";
 import google from "../assests/google-logo.png";
 import "../styles/loginpage.css";
 
 const Login = () => {
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!name || !pass) {
+      alert("name or password cannot be blank");
+    } else {
+      window.location.href = "/home";
+      // props.addTodo(title, desc);
+      alert("Thanks for loging in");
+      setName("");
+      setPass("");
+    }
+  };
+
   return (
     <>
       <div className="login">
@@ -34,18 +50,29 @@ const Login = () => {
           <div className="logindetails">
             <form>
               <div className="column">
-                <label htmlFor="email" className="form-label">
-                  Enter your email
+                <label htmlFor="name" className="form-label">
+                  Enter your name
                 </label>
-                <input type="email" id="email" />
+                <input
+                  type="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  id="name"
+                />
               </div>
               <div className="column">
                 <label htmlFor="password" className="form-label">
                   Password
                 </label>
-                <input type="password" className="form-control" id="password" />
+                <input
+                  type="password"
+                  value={pass}
+                  onChange={(e) => setPass(e.target.value)}
+                  className="form-control"
+                  id="password"
+                />
               </div>
-              <button type="submit" className="btn">
+              <button type="submit" className="btn" onClick={submit}>
                 Create an account
               </button>
               <h4>

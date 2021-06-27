@@ -7,6 +7,9 @@ import MAIL_CONTEXT from "../context/mail-context";
 import { v4 as uuidv4 } from "uuid";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
 function NewMail() {
   const {
     setShow,
@@ -64,14 +67,15 @@ function NewMail() {
           justifyContent: "center",
           width: "55vw",
           marginLeft: "45vw",
-          position: "fixed",
+          position: "absolute",
+          overlay: "scroll",
         }}
       >
         <div className="new-mail" style={{ padding: "30px" }}>
           <div className="new-mail-header">
-            <Typography variant="h6">NEW MAIL</Typography>
+            <Typography variant="h4">NEW MAIL</Typography>
           </div>
-          <hr />
+          {/* <hr /> */}
           <form onSubmit={formik.handleSubmit}>
             <div className="form-group my-1">
               <Typography variant="subtitle1">FROM:</Typography>
@@ -112,7 +116,7 @@ function NewMail() {
               />
             </div>
             <div className="form-group my-2">
-              <textarea
+              {/* <textarea
                 rows={15}
                 type="text"
                 id="content"
@@ -120,8 +124,17 @@ function NewMail() {
                 className="mx-1 my-1"
                 onChange={formik.handleChange}
                 value={formik.values.content}
+              /> */}
+              <Editor
+                // editorState={editorState}
+
+                toolbarClassName="toolbarClassName"
+                wrapperClassName="wrapperClassName"
+                editorClassName="editorClassName"
                 placeholder="Start here"
-              />
+                onChange={(e) => formik.handleChange.bind(this)}
+                value={formik.values.content}
+              ></Editor>
             </div>
             <div className="" style={{ display: "flex" }}>
               <Button

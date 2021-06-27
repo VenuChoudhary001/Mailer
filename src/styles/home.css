@@ -84,6 +84,7 @@ background-color: white;
 }
 .new-mail-header {
   padding: 5px;
+
 }
 .new-mail input {
   outline: none;
@@ -108,6 +109,7 @@ background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 }
 .Link {
   text-decoration: none;
@@ -152,4 +154,17 @@ background-color: white;
 }
 .Dropdown-arrow {
   color: white;
+}
+.rdw-option-wrapper:hover {
+  background: #eee;
+}
+
+.rdw-option-wrapper.rdw-option-active {
+  background: #eee;
+}
+.rdw-editor-main {
+  min-height: 500px;
+}
+.mx-1 {
+  margin-left: 5px;
 }
