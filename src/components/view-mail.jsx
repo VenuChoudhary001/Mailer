@@ -37,7 +37,6 @@ function ViewMail() {
         style={{
           display: "flex",
           justifyContent: "center",
-          width: "55vw",
           marginLeft: "45vw",
           position: "fixed",
         }}

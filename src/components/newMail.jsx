@@ -105,7 +105,6 @@ function NewMail() {
                 placeholder="Enter reciepient"
               />
               <button>CC</button>
-              <button>Bcc</button>
             </div>
             <div className="form-group my-2">
               <input

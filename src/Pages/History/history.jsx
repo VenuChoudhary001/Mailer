@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Sidebar from "../../components/sidebar";
 import Header from "../../components/header";
 import THEME from "../../theme/theme.jsx";
-import MailList from "../../components/mail-list";
+import HistoryMailList from "../../components/historymail-list";
 import ViewMail from "../../components/view-mail";
 import NewMail from "../../components/newMail";
 import MAIL_CONTEXT from "../../context/mail-context";
@@ -22,8 +22,8 @@ function History() {
       </div>
           <div className="grid-container" >
             <Sidebar style={{position: "fixed"}}/>
-
-            <MailList />
+     
+            <HistoryMailList />
        
             {show ? <NewMail /> : <ViewMail />}
          
