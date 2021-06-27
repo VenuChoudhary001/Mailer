@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
 import USER_CONTEXT from "../context/user-context";
-const MailList =() => {
+const HistoryMailList =() => {
  
   const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
   const {user}=useContext(USER_CONTEXT);
@@ -21,7 +21,7 @@ const MailList =() => {
     <>
       <div className="mail-list">
         <div className="mail-header ">
-          <Typography variant="h4">Scheduled Mails</Typography>
+          <Typography variant="h4">History</Typography>
         </div>
 
         <List>
@@ -61,4 +61,4 @@ const MailList =() => {
   );
 }
 
-export default MailList;
+export default HistoryMailList;
