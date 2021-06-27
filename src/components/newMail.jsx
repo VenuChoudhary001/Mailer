@@ -76,7 +76,7 @@ function NewMail() {
             <Typography variant="h4">NEW MAIL</Typography>
           </div>
           {/* <hr /> */}
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={}>
             <div className="form-group my-1">
               <Typography variant="subtitle1">FROM:</Typography>
               <input
@@ -84,7 +84,7 @@ function NewMail() {
                 id="from"
                 name="from"
                 className="mx-1"
-                onChange={formik.handleChange}
+                onChange={(e)=>setNewMail({...newMail,from:e.target.value()})}
                 value={formik.values.from}
                 placeholder="Enter reciepient"
               />
@@ -102,7 +102,7 @@ function NewMail() {
                 placeholder="Enter reciepient"
               />
               <button>CC</button>
-              <button>Bcc</button>
+             
             </div>
             <div className="form-group my-2">
               <input
@@ -172,3 +172,14 @@ function NewMail() {
 }
 
 export default NewMail;
+
+
+
+
+/*
+
+newMail{
+  to:
+  from:
+}
+*/
