@@ -4,6 +4,9 @@ import USER_CONTEXT from "../../context/user-context";
 import "../../styles/loginpage.css";
 import Redirect from "./loginredirect";
 import { Link, useHistory } from "react-router-dom";
+import GoogleLogin from 'react-google-login';
+import ReactDOM from 'react-dom';
+
 const Login = () => {
   const { setUser,  user } = useContext(USER_CONTEXT);
   let history = useHistory();
@@ -37,6 +40,11 @@ const Login = () => {
       setUser({ ...user, errors: null });
     }
   };
+  const responseGoogle = (response) => {
+ console.log(response);
+//  window.location.href = '/home';
+}
+
 
   return (
     <>
@@ -101,6 +109,29 @@ const Login = () => {
               <button type="submit" className="btn" onClick={Submit}>
                 CREATE ACCOUNT
               </button>
+              <h4>
+                <span>or</span>
+              </h4>
+              {/* <button type="submit" className="btn-success">
+                <img
+                  src={google}
+                  style={{
+                    width: "auto",
+                    height: "100%",
+                    marginLeft: "0px",
+                    marginRight: "8px",
+                  }}
+                  alt=""
+                />
+                Login with Google
+              </button> */}
+              <GoogleLogin
+    clientId="652180116893-lrdm5i34pvgtf3pud4rkjeghmcf0vthm.apps.googleusercontent.com"
+    buttonText="Login with Google"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
             </form>
           </div>
         </div>
