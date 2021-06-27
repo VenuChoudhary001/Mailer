@@ -2,7 +2,9 @@ import React, { useState, } from "react";
 import login from "../../assests/login.png";
 // import google from "../assests/google-logo.png";
 import "../../styles/loginpage.css";
-import Redirect from "./loginredirect";
+import GoogleLogin from 'react-google-login';
+import ReactDOM from 'react-dom';
+
 const Login = () => {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -32,6 +34,11 @@ const Login = () => {
       setPass("");
     }
   };
+  const responseGoogle = (response) => {
+ console.log(response);
+//  window.location.href = '/home';
+}
+
 
   return (
     <>
@@ -95,10 +102,10 @@ const Login = () => {
               <button type="submit" className="btn" onClick={Submit}>
                 Create an account
               </button>
-              {/* <h4>
+              <h4>
                 <span>or</span>
               </h4>
-              <button type="submit" className="btn-success">
+              {/* <button type="submit" className="btn-success">
                 <img
                   src={google}
                   style={{
@@ -111,6 +118,13 @@ const Login = () => {
                 />
                 Login with Google
               </button> */}
+              <GoogleLogin
+    clientId="652180116893-lrdm5i34pvgtf3pud4rkjeghmcf0vthm.apps.googleusercontent.com"
+    buttonText="Login with Google"
+    onSuccess={responseGoogle}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
             </form>
           </div>
         </div>
