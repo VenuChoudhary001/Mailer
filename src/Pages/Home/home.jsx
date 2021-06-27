@@ -10,8 +10,8 @@ import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import "../../styles/home.css";
 // import { Typography } from "@material-ui/core";
-function Home(props) {
-  const u=props.u;
+function Home() {
+  
   const { show } = useContext(MAIL_CONTEXT);
   return (
     <>
@@ -23,7 +23,7 @@ function Home(props) {
           <div className="grid-container" >
             <Sidebar style={{position: "fixed"}}/>
 
-            <MailList name={u}/>
+            <MailList />
        
             {show ? <NewMail /> : <ViewMail />}
          
