@@ -11,7 +11,7 @@ const ReactRouterSetup = () => {
       <Router>
         <Switch>
           <Route  exact path="/home">
-            <Home u="home"/>
+            <Home />
           </Route>
           <Route exact path="/">
             <Login />
@@ -20,7 +20,7 @@ const ReactRouterSetup = () => {
             <Loginredirect />
           </Route>
           <Route  exact path="/history">
-            <Home u="history"/>
+            <Home />
           </Route>
         </Switch>
       </Router>

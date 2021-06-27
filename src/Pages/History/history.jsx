@@ -10,7 +10,7 @@ import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import "../../styles/home.css";
 // import { Typography } from "@material-ui/core";
-function Home() {
+function History() {
   
   const { show } = useContext(MAIL_CONTEXT);
   return (
@@ -33,4 +33,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default History;
