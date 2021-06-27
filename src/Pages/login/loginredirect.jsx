@@ -1,36 +1,37 @@
-import React, { useState, } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import login from "../../assests/login.png";
+import USER_CONTEXT from "../../context/user-context";
 // import google from "../assests/google-logo.png";
 import "../../styles/loginpage.css";
 
 const LoginRedirect = () => {
-  const [name, setName] = useState("");
-  const [pass, setPass] = useState("");
+  const { user, setUser ,setFlag} = useContext(USER_CONTEXT);
+  let history = useHistory();
+
+  const loginUser = async () => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: user.userName,
+        password: user.password,
+      }),
+    };
+    let response = await fetch(
+      "https://flash-mailer-backend.herokuapp.com/api/login",
+      requestOptions
+    );
+
+    let result = await response.json();
+    setUser({ ...user, token: result.token });
+    // setFlag(true)
+    history.push("/home");
+  };
 
   const Submit = (e) => {
     e.preventDefault();
-    if (!name || !pass) {
-      alert("name or password cannot be blank");
-    } else {
-      // window.location.href = "/home";
-      // props.addTodo(title, desc);
-      // POST request using fetch inside useEffect React hook
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: name, password: pass }),
-      };
-
-      fetch(
-        "https://flash-mailer-backend.herokuapp.com/api/login",
-        requestOptions
-      ).then((response) => response.json());
-
-      // .then((response) => setName({  }));
-
-      setName("");
-      setPass("");
-    }
+    loginUser();
   };
 
   return (
@@ -53,8 +54,7 @@ const LoginRedirect = () => {
               marginTop: "0px",
               justifyContent: "center",
             }}
-          >
-          </div>
+          ></div>
           <div className="logindetails">
             <form>
               <div className="column">
@@ -62,9 +62,10 @@ const LoginRedirect = () => {
                   Enter Username
                 </label>
                 <input
-                  type="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  onChange={(e) =>
+                    setUser({ ...user, userName: e.target.value })
+                  }
                   id="name"
                 />
               </div>
@@ -74,8 +75,9 @@ const LoginRedirect = () => {
                 </label>
                 <input
                   type="password"
-                  value={pass}
-                  onChange={(e) => setPass(e.target.value)}
+                  onChange={(e) =>
+                    setUser({ ...user, password: e.target.value })
+                  }
                   className="form-control"
                   id="password"
                 />

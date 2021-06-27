@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   List,
   ListItem,
@@ -8,6 +8,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
+import USER_CONTEXT from "../context/user-context";
 const MailList =(props) => {
   const u= props.name ;
   var Heading = "heading";
@@ -18,6 +19,11 @@ const MailList =(props) => {
     Heading="History";
   }
   const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
+  const {user}=useContext(USER_CONTEXT);
+
+
+
+
   return (
     <>
       <div className="mail-list">

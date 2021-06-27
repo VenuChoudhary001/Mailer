@@ -1,13 +1,15 @@
 import React from "react";
 import { PROVIDER } from "./context/mail-context";
 import ReactRouterSetup from "./Router";
-
+import { USERPROVIDER } from "./context/user-context";
 function App() {
   return (
     <div>
-      <PROVIDER>
-        <ReactRouterSetup />
-      </PROVIDER>
+      <USERPROVIDER>
+        <PROVIDER>
+          <ReactRouterSetup />
+        </PROVIDER>
+      </USERPROVIDER>
     </div>
   );
 }

@@ -1,35 +1,40 @@
-import React, { useState, } from "react";
+import React, { useContext, useState } from "react";
 import login from "../../assests/login.png";
-// import google from "../assests/google-logo.png";
+import USER_CONTEXT from "../../context/user-context";
 import "../../styles/loginpage.css";
 import Redirect from "./loginredirect";
+import { Link, useHistory } from "react-router-dom";
 const Login = () => {
-  const [name, setName] = useState("");
-  const [pass, setPass] = useState("");
-
+  const { setUser,  user } = useContext(USER_CONTEXT);
+  let history = useHistory();
+  const registerUser = async () => {
+    // POST request using fetch inside useEffect React hook
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: user.userName,
+        password: user.password,
+      }),
+    };
+    let response = await fetch(
+      "https://flash-mailer-backend.herokuapp.com/api/register",
+      requestOptions
+    );
+    let result = await response.json();
+    console.log(result);
+    
+    setUser({ ...user, ...result });
+    history.push("/home");
+  };
   const Submit = (e) => {
     e.preventDefault();
-    if (!name || !pass) {
-      alert("name or password cannot be blank");
+
+    if (user.userName && user.password.length >= 6) {
+      registerUser();
     } else {
-      // window.location.href = "/home";
-      // props.addTodo(title, desc);
-      // POST request using fetch inside useEffect React hook
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: name, password: pass }),
-      };
-
-      fetch(
-        "https://flash-mailer-backend.herokuapp.com/api/register",
-        requestOptions
-      ).then((response) => response.json());
-
-      // .then((response) => setName({  }));
-
-      setName("");
-      setPass("");
+      alert(user.errors[0].msg);
+      setUser({ ...user, errors: null });
     }
   };
 
@@ -61,8 +66,7 @@ const Login = () => {
                 marginLeft: "4px",
                 cursor: "pointer",
               }}
-              onClick={() => (window.location.href = '/redirect')}
-              
+              onClick={() => (window.location.href = "/redirect")}
             >
               Sign in
             </h4>
@@ -74,9 +78,10 @@ const Login = () => {
                   Enter your name
                 </label>
                 <input
-                  type="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  onChange={(e) =>
+                    setUser({ ...user, userName: e.target.value })
+                  }
                   id="name"
                 />
               </div>
@@ -86,31 +91,16 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
-                  value={pass}
-                  onChange={(e) => setPass(e.target.value)}
+                  onChange={(e) =>
+                    setUser({ ...user, password: e.target.value })
+                  }
                   className="form-control"
                   id="password"
                 />
               </div>
               <button type="submit" className="btn" onClick={Submit}>
-                Create an account
+                CREATE ACCOUNT
               </button>
-              {/* <h4>
-                <span>or</span>
-              </h4>
-              <button type="submit" className="btn-success">
-                <img
-                  src={google}
-                  style={{
-                    width: "auto",
-                    height: "100%",
-                    marginLeft: "0px",
-                    marginRight: "8px",
-                  }}
-                  alt=""
-                />
-                Login with Google
-              </button> */}
             </form>
           </div>
         </div>

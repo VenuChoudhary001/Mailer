@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import USER_CONTEXT from "./user-context";
 
 const MAIL_CONTEXT = React.createContext();
 
@@ -13,16 +14,19 @@ export const PROVIDER = ({ children }) => {
   const [sendMail, setSendMail] = useState(false);
   //View particular mail on Click
   const [viewMail, setViewMail] = useState();
-  const getData = async () => {
-    let response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    let result = await response.json();
-    console.log(result);
-    setAllMail(result);
-  };
+
+  // const [flag,setFlag]=useState(false)
+
+
+  const { user } = useContext(USER_CONTEXT);
+
+ 
   useEffect(() => {
-    getData();
-  }, [sendMail]);
-  console.log(newMail);
+    
+
+      // getData();
+      console.log("use effetc");
+  }, []);
   return (
     <MAIL_CONTEXT.Provider
       value={{
@@ -36,6 +40,7 @@ export const PROVIDER = ({ children }) => {
         setSendMail,
         allMail,
         setAllMail,
+        // setFlag
       }}
     >
       {children}

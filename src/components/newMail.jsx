@@ -28,7 +28,6 @@ function NewMail() {
       content: "",
     },
     onSubmit: (values) => {
-      console.log(values);
       setSendMail(true);
       // setNewMail({ ...values, id: uuidv4() });
       const addData = async () => {
@@ -77,7 +76,7 @@ function NewMail() {
             <Typography variant="h4">NEW MAIL</Typography>
           </div>
           {/* <hr /> */}
-          <form onSubmit={}>
+          <form onSubmit={formik.handleSubmit}>
             <div className="form-group my-1">
               <Typography variant="subtitle1">FROM:</Typography>
               <input
@@ -85,7 +84,7 @@ function NewMail() {
                 id="from"
                 name="from"
                 className="mx-1"
-                onChange={(e)=>setNewMail({...newMail,from:e.target.value()})}
+                onChange={formik.handleChange}
                 value={formik.values.from}
                 placeholder="Enter reciepient"
               />
@@ -103,7 +102,7 @@ function NewMail() {
                 placeholder="Enter reciepient"
               />
               <button>CC</button>
-             
+              <button>Bcc</button>
             </div>
             <div className="form-group my-2">
               <input
@@ -128,15 +127,13 @@ function NewMail() {
               /> */}
               <Editor
                 // editorState={editorState}
-                id="content"
-                name="content"
+
                 toolbarClassName="toolbarClassName"
                 wrapperClassName="wrapperClassName"
                 editorClassName="editorClassName"
                 placeholder="Start here"
                 onChange={(e) => formik.handleChange.bind(this)}
                 value={formik.values.content}
-                onChange={(e) => console.log(e)}
               ></Editor>
             </div>
             <div className="" style={{ display: "flex" }}>
@@ -175,9 +172,6 @@ function NewMail() {
 }
 
 export default NewMail;
-
-
-
 
 /*
 
