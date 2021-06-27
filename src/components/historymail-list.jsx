@@ -8,7 +8,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
-import USER_CONTEXT from "../context/user-context";
+
 const HistoryMailList =() => {
  
   const { allMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);

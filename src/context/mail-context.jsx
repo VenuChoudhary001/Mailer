@@ -10,7 +10,7 @@ export const PROVIDER = ({ children }) => {
   const [allMail, setAllMail] = useState();
 
   //List of all scheduled mails
-  const [scheduleList,setScheduleList]=useState();
+  
 
   //NewMail
   const [newMail, setNewMail] = useState();
@@ -19,7 +19,7 @@ export const PROVIDER = ({ children }) => {
   //View particular mail on Click
   const [viewMail, setViewMail] = useState();
 
-   const [history,setHistory]=useState(false);
+   
 
   const { user } = useContext(USER_CONTEXT);
  const getData = async () => {
@@ -64,6 +64,7 @@ export const PROVIDER = ({ children }) => {
         setSendMail,
         allMail,
         setAllMail,
+        sendMail
         // setFlag
       }}
     >

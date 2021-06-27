@@ -8,7 +8,7 @@ export const USERPROVIDER = ({ children }) => {
   const [flag, setFlag] = useState(false);
   console.log(user);
   return (
-    <USER_CONTEXT.Provider value={{ setUser, setFlag, user }}>
+    <USER_CONTEXT.Provider value={{ setUser, setFlag, user ,flag}}>
       {children}
     </USER_CONTEXT.Provider>
   );
