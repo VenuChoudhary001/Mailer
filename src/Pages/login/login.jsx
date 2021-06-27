@@ -1,20 +1,33 @@
-import React, { useState } from "react";
-import login from "../assests/login.png";
-import google from "../assests/google-logo.png";
-import "../styles/loginpage.css";
-
+import React, { useState, } from "react";
+import login from "../../assests/login.png";
+// import google from "../assests/google-logo.png";
+import "../../styles/loginpage.css";
+import Redirect from "./loginredirect";
 const Login = () => {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
 
-  const submit = (e) => {
+  const Submit = (e) => {
     e.preventDefault();
     if (!name || !pass) {
       alert("name or password cannot be blank");
     } else {
-      window.location.href = "/home";
+      // window.location.href = "/home";
       // props.addTodo(title, desc);
-      alert("Thanks for loging in");
+      // POST request using fetch inside useEffect React hook
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username: name, password: pass }),
+      };
+
+      fetch(
+        "https://flash-mailer-backend.herokuapp.com/api/register",
+        requestOptions
+      ).then((response) => response.json());
+
+      // .then((response) => setName({  }));
+
       setName("");
       setPass("");
     }
@@ -42,8 +55,15 @@ const Login = () => {
             }}
           >
             <h4>Already have an account?</h4>
-            <h4 style={{ color: "var(--primary-color)", marginLeft: "4px" }}>
-              {" "}
+            <h4
+              style={{
+                color: "var(--primary-color)",
+                marginLeft: "4px",
+                cursor: "pointer",
+              }}
+              onClick={() => (window.location.href = '/redirect')}
+              
+            >
               Sign in
             </h4>
           </div>
@@ -72,10 +92,10 @@ const Login = () => {
                   id="password"
                 />
               </div>
-              <button type="submit" className="btn" onClick={submit}>
+              <button type="submit" className="btn" onClick={Submit}>
                 Create an account
               </button>
-              <h4>
+              {/* <h4>
                 <span>or</span>
               </h4>
               <button type="submit" className="btn-success">
@@ -90,7 +110,7 @@ const Login = () => {
                   alt=""
                 />
                 Login with Google
-              </button>
+              </button> */}
             </form>
           </div>
         </div>

@@ -28,6 +28,7 @@ function NewMail() {
       content: "",
     },
     onSubmit: (values) => {
+      console.log(values);
       setSendMail(true);
       // setNewMail({ ...values, id: uuidv4() });
       const addData = async () => {
@@ -127,13 +128,15 @@ function NewMail() {
               /> */}
               <Editor
                 // editorState={editorState}
-
+                id="content"
+                name="content"
                 toolbarClassName="toolbarClassName"
                 wrapperClassName="wrapperClassName"
                 editorClassName="editorClassName"
                 placeholder="Start here"
                 onChange={(e) => formik.handleChange.bind(this)}
                 value={formik.values.content}
+                onChange={(e) => console.log(e)}
               ></Editor>
             </div>
             <div className="" style={{ display: "flex" }}>
