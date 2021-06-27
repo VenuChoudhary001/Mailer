@@ -41,9 +41,12 @@ const getData = async () => {
   
 };
   useEffect(()=>{
-   getData();
-   console.log("mail list")
-  },[])
+    if(user.token){
+
+      getData();
+      console.log("mail list")
+    }
+  })
 
 
 
