@@ -9,15 +9,8 @@ import {
 } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
 import USER_CONTEXT from "../context/user-context";
-const MailList =(props) => {
-  const u= props.name ;
-  var Heading = "heading";
-  if (u==="home"){
-    Heading= "Scheduled Mails";
-  }
-  else if (u=== "history"){
-    Heading="History";
-  }
+const MailList =() => {
+ 
   const { allMail, viewMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
   const {user}=useContext(USER_CONTEXT);
 
@@ -28,7 +21,7 @@ const MailList =(props) => {
     <>
       <div className="mail-list">
         <div className="mail-header ">
-          <Typography variant="h4">{Heading}</Typography>
+          <Typography variant="h4">Scheduled Mails</Typography>
         </div>
 
         <List>
