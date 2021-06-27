@@ -26,7 +26,7 @@ function ViewMail() {
     if (viewMail) {
       getData();
     }
-  }, [viewMail]);
+  },[viewMail]);
   if (!currentMail) {
     return <h2>Click on mails to see</h2>;
   }

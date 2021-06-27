@@ -1,19 +1,49 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   List,
   ListItem,
   ListItemText,
   Typography,
   ListItemAvatar,
- 
+  Avatar,
 } from "@material-ui/core";
 import MAIL_CONTEXT from "../context/mail-context";
-
-const MailList =() => {
+import USER_CONTEXT from "../context/user-context";
+const MailList =(props) => {
+  const u= props.name ;
+  var Heading = "heading";
+  if (u==="home"){
+    Heading= "Scheduled Mails";
+  }
+  else if (u=== "history"){
+    Heading="History";
+  }
+  const { allMail,  setViewMail, setShow } = useContext(MAIL_CONTEXT);
+  const {user}=useContext(USER_CONTEXT);
+const getData = async () => {
+  console.log(user.token);
+  const requestOptions = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "AuthTokenString": `${user.token}`,
+    },
+  };
  
-  const { allMail, setViewMail, setShow } = useContext(MAIL_CONTEXT);
-  // const {user}=useContext(USER_CONTEXT);
-
+   let response = await fetch(
+    "https://flash-mailer-backend.herokuapp.com/api/send/mail/sent",
+    requestOptions
+  );
+  console.log(response);
+  let result = await response.json();
+  console.log(result);
+ 
+  
+};
+  useEffect(()=>{
+   getData();
+   console.log("mail list")
+  },[])
 
 
 
@@ -21,7 +51,7 @@ const MailList =() => {
     <>
       <div className="mail-list">
         <div className="mail-header ">
-          <Typography variant="h4">Scheduled Mails</Typography>
+          <Typography variant="h4">{Heading}</Typography>
         </div>
 
         <List>
@@ -30,15 +60,15 @@ const MailList =() => {
                 <ListItem
                   button
                   onClick={() => {
-                    setViewMail(item.id);
+                    setViewMail(item._id);
                     setShow(false);
                   }}
                 >
                   <ListItemAvatar>
-                    {/* <Avatar src="/hi" alt={item.mail.to} /> */}
+                    <Avatar src="/hi" alt={item.mail.to} />
                   </ListItemAvatar>
                   <ListItemText
-                    primary={item.title}
+                    primary={item.mail.subject}
                     secondary={
                       <React.Fragment>
                         <Typography
@@ -46,9 +76,9 @@ const MailList =() => {
                           variant="body2"
                           color="textPrimary"
                         >
-                          Ali Connors
+                          {/* Ali Connors */}
+                        {item.mail.body}
                         </Typography>
-                        {item.body}
                       </React.Fragment>
                     }
                   />

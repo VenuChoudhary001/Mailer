@@ -50,7 +50,7 @@ export const PROVIDER = ({ children }) => {
    getData();
   }
       console.log("use effetc");
-  }, [user]);
+  },[user]);
   return (
     <MAIL_CONTEXT.Provider
       value={{
